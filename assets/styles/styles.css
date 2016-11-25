@@ -1,0 +1,23 @@
+body{
+	background-color : #eee;
+}
+
+li {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+p {
+	font-size: large;
+}
+
+div, textarea {
+	font-size: x-large;
+}
+
+.limitCharacters {
+    height:30px; 
+    overflow:hidden; 
+    text-overflow:ellipsis;
+    white-space:nowrap; 
+}

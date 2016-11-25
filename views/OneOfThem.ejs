@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Articles</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+	
+		
+		<% articles.forEach(function(art) { %>
+		<div class="nav-wrapper green">
+                <div class="brand-logo center">
+                	<h1><center> [BDS ESIEA] <%- art.Nom %></center></h1>
+                </div>
+            </div></br></br></br>
+			
+		<div class="container"> <!-- responsive design -->
+
+			
+				<ul>
+			
+					<div class="row">
+						<div class="col s12 m5">
+					        <div class="card-panel blue-grey darken-2">
+					          <span class="white-text" ><center><%- art.Nom %></center>
+					          </span>
+					        </div>
+					      </div>
+					    </div>
+					      <div class="col s12 m5">
+					        <div class="card-panel blue-grey darken-2">
+					          <span class="white-text"><%- art.Contenu %>
+					          </span>
+					        </div>
+					      </div>
+					    </div>
+				</ul>
+				
+			
+			
+		</div>
+		
+	
+		<% }); %>
+		</br>
+		<div class="center">
+		<a href="/">Retour aux projets</a>
+	</div>
+	</body>
+	<footer>
+		<script> $(document).ready(function(){
+    $('.collapsible').collapsible();
+  }); </script>
+	</footer>
+</html>

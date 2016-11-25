@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Articles</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+
+		<% articles.forEach(function(art) { %>
+
+			<div class="nav-wrapper green">
+                <div class="brand-logo center">
+                	<h1><center> Modification du projet <%- art.Nom %> </center></h1>
+                </div>
+            </div>
+		
+			
+		<div class="container"> <!-- responsive design -->
+			<ul class="collapsible popout" data-collapsible="accordion">
+			
+				<li>
+					<div class="collapsible-header"><%= art.Nom %></div>
+					<div class="collapsible-body"><p><%- art.Contenu %></p></div>
+				</li>
+				
+			
+			</ul>
+		</div>
+		
+		
+		<div class="card-panel white">
+				<h5> Modifier l'article </h5>
+				<form action="/updateArticle" method="post">
+					<div class="input-field">
+						<input id="title" type="text" class="validate" name="title" value="<%- art.Nom %>" style="display:none">
+					</div>
+					<div class="input-field">
+			          <textarea id="content" class="materialize-textarea" name="content" style="display:none"><%- art.Contenu %></textarea>
+			       </div> 
+			       <div class="input-field">
+						<input id="newTitle" type="text" class="validate" name="newTitle" value="<%- art.Nom %>">
+						<label for="newTitle">Nouveau nom de l'article</label>
+					</div>
+					<div class="input-field">
+			          <textarea id="newContent" class="materialize-textarea" name="newContent" ><%- art.Contenu %></textarea>
+			          <label for="newContent">Nouveau contenu</label>
+			        </div>  
+
+			        <button class="waves-effect waves-light btn green" type="submit">Modifier</button>  
+				</form>
+		</div>
+
+	
+		<% }); %>
+	</body>
+	<footer>
+		<script> $(document).ready(function(){
+    $('.collapsible').collapsible();
+  }); </script>
+	</footer>
+</html>

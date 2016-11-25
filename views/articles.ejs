@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Articles</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+
+            <div class="nav-wrapper green">
+                <div class="brand-logo center">
+                	<h1><center> Les Projets du BDS ESIEA </center></h1>
+                </div>
+            </div>
+ 
+
+		<div class="container"> <!-- responsive design -->
+			<ul class="collapsible popout" data-collapsible="accordion">
+			
+				<% articles.forEach(function(art) { %>
+					<li>
+						<div class="collapsible-header"><%= art.Nom %></div>
+						<div class="collapsible-body">
+							<p class="limitCharacters"><%- art.Contenu %></p>
+						</br>
+							<form action="/OneOfThem" method="get">
+									<input id="id" type="text" class="validate" name="id" value="<%- art.id %>" style="display:none">
+									<button class="btn waves-effect blue" type="submit" style="display:inline">Voir l'article</button>
+								</form></br>
+							<div class="right-align">
+								<form action="/updateArticle" method="get">
+									<input id="id" type="text" class="validate" name="id" value="<%- art.id %>" style="display:none">
+									<button class="btn waves-effect green" type="submit" style="display:inline">Modifier</button>
+								</form></br>
+								<form action="/deleteArticle" method="post" >
+								<input id="id" type="text" class="validate" name="id" value="<%- art.id %>" style="display:none">
+									<button class="btn waves-effect red" type="submit" style="display:inline">Supprimer</button>
+								</form>
+							</div>							
+						</div>
+					</li>
+				<% }); %>
+			</ul> 
+			</br>
+			<div class="card-panel white">
+				<h5> Ajouter un article </h5>
+				<form action="/newArticle" method="post">
+					<div class="input-field">
+						<input id="title" type="text" class="validate" name="title">
+						<label for="title">Nom de l'article</label>
+					</div>
+					<div class="input-field">
+			          <textarea id="content" class="materialize-textarea" name="content"></textarea>
+			          <label for="content">Contenu</label>
+			        </div>
+			        <button class="waves-effect waves-light btn purple darken-2" type="submit">Ajouter</button>
+				</form>
+			</div>
+			</br>
+		</div>
+	</body>
+	<footer>
+		<script> $(document).ready(function(){
+    $('.collapsible').collapsible();
+  }); </script>
+	</footer>
+</html>
